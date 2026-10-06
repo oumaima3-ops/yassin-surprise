@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>A Little Surprise ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#000;
+    color:white;
+}
+
+.page{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100dvh;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.page.active{
+    display:flex;
+}
+
+/* ================= PAGE 1 ================= */
+
+#page1{
+    background:
+    radial-gradient(circle at 50% 35%, #421323 0%, #180811 35%, #020202 85%);
+}
+
+.stars{
+    position:absolute;
+    inset:0;
+    background-image:
+    radial-gradient(#fff 1px,transparent 1px),
+    radial-gradient(#ff7895 1px,transparent 1px);
+    background-size:70px 70px,110px 110px;
+    opacity:.3;
+    animation:moveStars 15s linear infinite;
+}
+
+@keyframes moveStars{
+    from{transform:translateY(0);}
+    to{transform:translateY(-100px);}
+}
+
+.content{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:500px;
+    padding:20px;
+}
+
+.small{
+    color:#ff91a9;
+    font-size:11px;
+    letter-spacing:4px;
+    margin-bottom:22px;
+    text-transform:uppercase;
+}
+
+h1{
+    font-size:clamp(42px,13vw,75px);
+    font-weight:300;
+    letter-spacing:1px;
+    margin-bottom:18px;
+}
+
+.subtitle{
+    color:#aaa;
+    font-size:16px;
+    margin-bottom:38px;
+}
+
+.btn{
+    border:1px solid #ff5476;
+    background:rgba(255,50,90,.08);
+    color:white;
+    padding:16px 34px;
+    min-width:190px;
+    border-radius:50px;
+    font-size:15px;
+    letter-spacing:1px;
+    cursor:pointer;
+    box-shadow:0 0 25px rgba(255,50,90,.2);
+    transition:.3s;
+}
+
+.btn:active{
+    transform:scale(.94);
+    background:#ff4164;
+}
+
+/* ================= PAGE 2 ================= */
+
+#page2{
+    background:
+    radial-gradient(circle at center,#360817,#0c0206 65%,#000);
+}
+
+.prank{
+    width:92%;
+    position:relative;
+    z-index:2;
+}
+
+.fuck{
+    font-size:clamp(48px,15vw,110px);
+    font-weight:900;
+    color:#ff315b;
+    line-height:1;
+    text-shadow:
+    0 0 10px #ff315b,
+    0 0 30px #ff315b,
+    0 0 70px rgba(255,49,91,.6);
+    animation:shake .5s infinite alternate;
+}
+
+@keyframes shake{
+    from{transform:rotate(-1deg) scale(1);}
+    to{transform:rotate(1deg) scale(1.03);}
+}
+
+.kidding{
+    opacity:0;
+    transform:translateY(25px);
+    transition:1.3s;
+    margin-top:35px;
+}
+
+.kidding.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.kidding h2{
+    font-size:27px;
+    margin-bottom:12px;
+}
+
+.kidding p{
+    color:#aaa;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.loveButton{
+    opacity:0;
+    transform:translateY(20px);
+    transition:1.2s;
+    margin-top:28px;
+}
+
+.loveButton.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ================= PAGE 3 ================= */
+
+#page3{
+    background:
+    radial-gradient(circle at 50% 35%,#451225,#190811 42%,#020202 85%);
+}
+
+.loveContent{
+    width:92%;
+    max-width:650px;
+    position:relative;
+    z-index:5;
+}
+
+.loveTitle{
+    color:#ffb2c3;
+    font-size:clamp(23px,7vw,42px);
+    font-weight:300;
+    margin-bottom:35px;
+    letter-spacing:1px;
+}
+
+#message{
+    min-height:240px;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:7px;
+    line-height:1.7;
+    padding:5px;
+}
+
+.word{
+    opacity:0;
+    transform:translateY(20px) scale(.9);
+    filter:blur(5px);
+    transition:.65s;
+    font-size:clamp(18px,5vw,27px);
+}
+
+.word.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+}
+
+.highlight{
+    color:#ff6688;
+    text-shadow:0 0 15px rgba(255,60,100,.7);
+}
+
+.kiss{
+    opacity:0;
+    transform:scale(.3);
+    transition:1.5s;
+    margin-top:15px;
+}
+
+.kiss.show{
+    opacity:1;
+    transform:scale(1);
+}
+
+.bigKiss{
+    font-size:clamp(95px,30vw,200px);
+    animation:beat 1.2s infinite;
+}
+
+@keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.12);}
+}
+
+.kissText{
+    color:#ffb3c4;
+    font-size:clamp(18px,5vw,30px);
+    line-height:1.4;
+    margin-top:5px;
+}
+
+.heart{
+    position:absolute;
+    bottom:-40px;
+    pointer-events:none;
+    animation:float linear forwards;
+    z-index:1;
+}
+
+@keyframes float{
+    0%{
+        opacity:0;
+        transform:translateY(0) scale(.5);
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+        transform:translateY(-110vh) scale(1.4) rotate(30deg);
+    }
+}
+
+.music{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:1px solid #ff6688;
+    background:rgba(255,50,90,.12);
+    color:white;
+    font-size:19px;
+    z-index:20;
+}
+
+/* ================= VERY SMALL PHONES ================= */
+
+@media(max-height:650px){
+
+    .subtitle{
+        margin-bottom:25px;
+    }
+
+    .loveTitle{
+        margin-bottom:20px;
+    }
+
+    #message{
+        min-height:190px;
+    }
+
+    .word{
+        font-size:17px;
+    }
+
+    .bigKiss{
+        font-size:90px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+
+<section id="page1" class="page active">
+
+    <div class="stars"></div>
+
+    <div class="content">
+
+        <div class="small">
+            A little surprise
+        </div>
+
+        <h1>
+            Hey… You 👀
+        </h1>
+
+        <p class="subtitle">
+            I have something to tell you...
+        </p>
+
+        <button class="btn" onclick="page2()">
+            Click Here ❤️
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 2 -->
+
+<section id="page2" class="page">
+
+    <div class="prank">
+
+        <div class="fuck">
+            FUCK YOU 😂
+        </div>
+
+        <div id="kidding" class="kidding">
+
+            <h2>
+                Just kidding… 😭❤️
+            </h2>
+
+            <p>
+                Don't be mad... I actually have<br>
+                something sweet for you.
+            </p>
+
+        </div>
+
+        <div id="loveButton" class="loveButton">
+
+            <button class="btn" onclick="page3()">
+                Okay… Click Here 💗
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 3 -->
+
+<section id="page3" class="page">
+
+    <div class="loveContent">
+
+        <div class="loveTitle">
+            I Have Something To Tell You...
+        </div>
+
+        <div id="message"></div>
+
+        <div id="kiss" class="kiss">
+
+            <div class="bigKiss">
+                💋
+            </div>
+
+            <div class="kissText">
+                This kiss is for you, Yassin. ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+    <button class="music" onclick="toggleMusic()" id="musicBtn">
+        🎵
+    </button>
+
+</section>
+
+
+<script>
+
+/* PAGE 1 */
+
+function page2(){
+
+    document.getElementById("page1").classList.remove("active");
+
+    document.getElementById("page2").classList.add("active");
+
+    setTimeout(function(){
+
+        document.getElementById("kidding").classList.add("show");
+
+        document.getElementById("loveButton").classList.add("show");
+
+    },10000);
+}
+
+
+/* PAGE 2 */
+
+function page3(){
+
+    document.getElementById("page2").classList.remove("active");
+
+    document.getElementById("page3").classList.add("active");
+
+    writeMessage();
+
+    hearts();
+
+    startMusic();
+}
+
+
+/* MESSAGE */
+
+function writeMessage(){
+
+    const text = `
+    Maybe I don't say it enough,
+    but you mean more to me than you know.
+    Through every laugh, every argument,
+    every moment we shared,
+    there is always a part of me
+    that chooses you.
+    I don't know what the future holds,
+    but I know one thing...
+    I want beautiful memories with you. ❤️
+    `;
+
+    const box = document.getElementById("message");
+
+    box.innerHTML="";
+
+    const words=text.trim().split(/\s+/);
+
+    words.forEach(function(word,i){
+
+        const span=document.createElement("span");
+
+        span.className="word";
+
+        if(
+            word.includes("you") ||
+            word.includes("You") ||
+            word.includes("❤️")
+        ){
+            span.classList.add("highlight");
+        }
+
+        span.textContent=word;
+
+        box.appendChild(span);
+
+        setTimeout(function(){
+
+            span.classList.add("show");
+
+        },i*130);
+
+    });
+
+    setTimeout(function(){
+
+        document.getElementById("kiss").classList.add("show");
+
+    },words.length*130+1800);
+}
+
+
+/* HEARTS */
+
+function hearts(){
+
+    setInterval(function(){
+
+        const heart=document.createElement("div");
+
+        heart.className="heart";
+
+        const list=["❤️","💗","💕","💖","💘"];
+
+        heart.innerHTML=
+        list[Math.floor(Math.random()*list.length)];
+
+        heart.style.left=Math.random()*100+"%";
+
+        heart.style.fontSize=
+        (15+Math.random()*22)+"px";
+
+        heart.style.animationDuration=
+        (5+Math.random()*5)+"s";
+
+        document.getElementById("page3").appendChild(heart);
+
+        setTimeout(function(){
+            heart.remove();
+        },10000);
+
+    },600);
+}
+
+
+/* MUSIC */
+
+let audio;
+let playing=false;
+let timer;
+
+function startMusic(){
+
+    if(playing)return;
+
+    try{
+
+        audio=new(
+            window.AudioContext ||
+            window.webkitAudioContext
+        )();
+
+        playing=true;
+
+        melody();
+
+    }catch(e){}
+
+}
+
+function melody(){
+
+    if(!playing)return;
+
+    const notes=[
+        261.63,
+        329.63,
+        392,
+        329.63,
+        293.66,
+        349.23,
+        440,
+        349.23
+    ];
+
+    let now=audio.currentTime;
+
+    notes.forEach(function(note,i){
+
+        let osc=audio.createOscillator();
+
+        let gain=audio.createGain();
+
+        osc.type="sine";
+
+        osc.frequency.value=note;
+
+        gain.gain.setValueAtTime(
+            .035,
+            now+i*.45
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .001,
+            now+i*.45+.4
+        );
+
+        osc.connect(gain);
+
+        gain.connect(audio.destination);
+
+        osc.start(now+i*.45);
+
+        osc.stop(now+i*.45+.45);
+
+    });
+
+    timer=setTimeout(melody,3600);
+}
+
+
+function toggleMusic(){
+
+    if(!playing){
+
+        startMusic();
+
+        document.getElementById("musicBtn").textContent="🔊";
+
+    }else{
+
+        playing=false;
+
+        clearTimeout(timer);
+
+        if(audio){
+            audio.close();
+            audio=null;
+        }
+
+        document.getElementById("musicBtn").textContent="🎵";
+    }
+}
+
+</script>
+
+</body>
+</html>
